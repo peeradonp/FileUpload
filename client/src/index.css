@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+@import "react-toastify/dist/ReactToastify.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Poppins';
+  overflow: hidden;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+body {
+  margin: 0;
+}
+
+.h-res {
+  height: calc(100svh - 56px);
+}
+
+.min-h-res {
+  min-height: calc(100svh - 86px);
+}
