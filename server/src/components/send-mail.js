@@ -1,22 +1,21 @@
 import nodemailer from 'nodemailer'
-// must be in .env --------------------------
-const USER_GMAIL = process.env.MAIL || 'mockuploadfile@gmail.com'
-const USER_PASS = process.env.PASSWORD || 'lxmbftcopnelhlie' // will remove
-// ------------------------------------------
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.email',
     secure: false,
     service: 'gmail',
     auth: {
-        user: USER_GMAIL,
-        pass: USER_PASS
+        user: process.env.MAIL,
+        pass: process.env.PASSWORD
     }
 })
 
 const sendEmailNotification = async (uploadedFile, userEmail) => {
     const mailOptions = {
-        from: USER_GMAIL,
+        from: process.env.MAIL,
         to: userEmail,
         subject: 'File Uploaded Successfully',
         text: `Your file ${uploadedFile.originalname} has been uploaded successfully.`
